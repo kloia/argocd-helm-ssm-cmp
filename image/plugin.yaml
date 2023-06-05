@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ConfigManagementPlugin
+metadata:
+  name: argocd-helm-ssm
+spec:
+  version: v0.1.0
+  init:
+    command: [bash]
+    args: [/home/argocd/cmp-server/config/scripts/init.sh]
+  generate:
+    command: [sh]
+    args: [/home/argocd/cmp-server/config/scripts/generate.sh]
+  parameters:
+    static:
+      - name: values-file-path
+        title: Path to the values.yaml file under `.spec.source.path`
+        itemType: string
+        collectionType: string
+        string: values.yaml
+    preserveFileMode: false

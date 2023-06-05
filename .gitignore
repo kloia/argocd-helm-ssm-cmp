@@ -1,0 +1,14 @@
+# editor configs
+.idea/
+.vscode/
+.vs/
+
+# direnv
+.envrc
+
+# macos
+.DS_Store
+
+# windows
+Thumbs.db
+thumbs.db
